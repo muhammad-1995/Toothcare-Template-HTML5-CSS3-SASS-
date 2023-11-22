@@ -1,0 +1,252 @@
+@use "../abstracts/" as *;
+
+/* Footer Section Start */
+
+%main-title {
+  @include basic-properties(
+    $light-color,
+    $font-size-18,
+    $normal-font-weight,
+    capitalize
+  );
+}
+
+%list-style {
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    li {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      cursor: pointer;
+      .icon {
+        i {
+          font-size: $font-size-13;
+          color: $light-color;
+        }
+      }
+      .text {
+        @include basic-properties(
+          $light-color,
+          $font-size-16,
+          $light-font-weight,
+          capitalize
+        );
+      }
+    }
+  }
+}
+
+.footer {
+  .section-top {
+    position: relative;
+    padding: calc($padding-130 / 2) 0;
+    background-image: url(../images/bg_1.jpg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #00bcd4d4;
+    }
+    .container {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 50px;
+      .box {
+        .head {
+          h2 {
+            margin: 0;
+            @extend %main-title;
+          }
+          margin-bottom: 50px;
+        }
+        max-width: 300px;
+        flex-grow: 1;
+        &.section-1 {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          .brand {
+            a {
+              display: flex;
+              flex-direction: column;
+              .title {
+                @include basic-properties(
+                  $light-color,
+                  $font-size-24,
+                  $boldest-font-weight,
+                  uppercase
+                );
+              }
+              .text {
+                @include basic-properties(
+                  $light-color,
+                  $font-size-13,
+                  $normal-font-weight,
+                  uppercase
+                );
+              }
+            }
+          }
+          .content {
+            .text {
+              p {
+                @include basic-properties(
+                  #ffffffe6,
+                  $font-size-16,
+                  $light-font-weight,
+                  capitalize
+                );
+                line-height: $main-line-height;
+              }
+            }
+            .social {
+              display: flex;
+              gap: 5px;
+              span {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                background-color: $main-color-3;
+                @include prefixes(border-radius, 50%);
+                text-align: center;
+                cursor: pointer;
+                i {
+                  font-size: $font-size-14;
+                  color: $light-color;
+                }
+              }
+            }
+          }
+        }
+        &.section-2 {
+          @extend %list-style;
+        }
+        &.section-3 {
+          @extend %list-style;
+        }
+        &.section-4 {
+          .recent-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .recent-box {
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              .image {
+                width: 50px;
+                height: 50px;
+                &.one {
+                  background-image: url(../images/ximage_1.jpg);
+                }
+                &.two {
+                  background-image: url(../images/ximage_2.jpg);
+                }
+                &.three {
+                  background-image: url(../images/ximage_3.jpg);
+                }
+                background-size: cover;
+                background-position: center center;
+                @include prefixes(border-radius, 5px);
+              }
+              .content {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .info {
+                  ul {
+                    display: flex;
+                    gap: 10px;
+                    li {
+                      display: flex;
+                      gap: 5px;
+                      @include basic-properties(
+                        rgba(255, 255, 255, 0.7),
+                        $font-size-13,
+                        $light-font-weight,
+                        capitalize
+                      );
+                    }
+                  }
+                }
+                .text {
+                  p {
+                    margin: 0;
+                    @include basic-properties(
+                      $light-color,
+                      $font-size-16,
+                      $light-font-weight,
+                      capitalize
+                    );
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.section-5 {
+          .location-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .box {
+              display: flex;
+              gap: 30px;
+              .icon {
+                i {
+                  color: $light-color;
+                }
+              }
+              .text {
+                @include basic-properties(
+                  rgba(255, 255, 255, 0.7),
+                  $font-size-16,
+                  $light-font-weight,
+                  capitalize
+                );
+                a {
+                  display: block;
+                  @include basic-properties(
+                    rgba(255, 255, 255, 0.7),
+                    $font-size-16,
+                    $light-font-weight,
+                    none
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .section-bottom {
+    background-color: $main-color;
+    padding: $padding-48 0;
+    .container {
+      text-align: center;
+      p {
+        margin: 0;
+        @include basic-properties(
+          #ffffffe6,
+          $font-size-14,
+          $light-font-weight,
+          capitalize
+        );
+      }
+    }
+  }
+}
+
+/* Footer Section End */

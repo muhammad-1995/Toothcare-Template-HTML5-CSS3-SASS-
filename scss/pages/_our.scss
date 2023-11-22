@@ -1,0 +1,105 @@
+@use "../abstracts/" as *;
+@use "../components/classes" as *;
+
+/* Our Section Start */
+
+.our {
+  padding: $padding-130 0;
+  background-color: $main-b-g;
+  .main-heading {
+    margin-bottom: calc(235.104px / 2 + 70px);
+  }
+  .our-content {
+    position: relative;
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 25px;
+    row-gap: calc(235.104px / 2 + 25px);
+    .box {
+      padding: $padding-30;
+      background-color: $light-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      @include prefixes(border-radius, 5px);
+      .box-image {
+        position: absolute;
+        top: calc(-235.104px / 2);
+        img {
+          width: 200px;
+          border: 13px solid $main-b-g;
+          @include prefixes(border-top-left-radius, 50%);
+          @include prefixes(border-bottom-left-radius, 50%);
+          @include prefixes(border-bottom-right-radius, 50%);
+        }
+      }
+      .box-content {
+        padding-top: calc(235.104px / 2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        h3 {
+          @include basic-properties(
+            $main-heading,
+            $font-size-20,
+            $normal-font-weight,
+            capitalize
+          );
+        }
+        span.sp {
+          display: block;
+          @include basic-properties(
+            $main-color,
+            $font-size-14,
+            $normal-font-weight,
+            uppercase
+          );
+        }
+        .icon-box {
+          display: flex;
+          gap: 5px;
+          span {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: $main-color-3;
+            @include prefixes(border-radius, 50%);
+            text-align: center;
+            cursor: pointer;
+            i {
+              font-size: $font-size-16;
+              color: $light-color;
+            }
+          }
+        }
+        .text {
+          p {
+            text-align: center;
+            @include basic-properties(
+              $primary-tx-color,
+              $font-size-16,
+              $light-font-weight,
+              capitalize
+            );
+            line-height: 2;
+          }
+        }
+      }
+      &:hover {
+        @include hover-class;
+        span.sp {
+          color: $light-color;
+        }
+      }
+    }
+  }
+}
+
+/* Our Section End */

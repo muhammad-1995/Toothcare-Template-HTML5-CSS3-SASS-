@@ -1,0 +1,79 @@
+@use "../abstracts/" as *;
+
+/* Blog Section Start */
+
+.blog {
+  padding: 0 0 $padding-130 0;
+  background-color: $second-bg;
+  .main-heading {
+    margin-bottom: 80px;
+  }
+  .boxs-container {
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 25px;
+    .box {
+      @include prefixes(border-radius, 5px);
+      overflow: hidden;
+      background-color: $light-color;
+      .contnet {
+        padding: $padding-30;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .info {
+          display: flex;
+          gap: 15px;
+          .block {
+            .icon {
+              i {
+                color: $main-color;
+              }
+            }
+            .comment {
+              @include basic-properties(
+                $primary-tx-color,
+                $font-size-13,
+                $bold-font-weight,
+                uppercase
+              );
+            }
+          }
+        }
+        .title {
+          p {
+            @include basic-properties(
+              black,
+              $font-size-20,
+              $normal-font-weight,
+              capitalize
+            );
+            line-height: $main-line-height;
+            @include prefixes(transition, color 0.3s linear);
+            &:hover {
+              color: $main-color;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .text {
+        p {
+          @include basic-properties(
+            $primary-tx-color,
+            $font-size-16,
+            $light-font-weight,
+            capitalize
+          );
+          line-height: $main-line-height;
+        }
+      }
+    }
+  }
+}
+
+/* Blog Section End */

@@ -1,0 +1,61 @@
+@use "../abstracts/" as *;
+
+/* Overlay Section Start */
+
+.overlay-section {
+  padding: 0 0 $padding-130 0;
+  background-color: $main-b-g;
+  .over-box {
+    position: relative;
+    background-image: url("../images/bg_1.jpg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: $padding-50 0;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: $main-color;
+      height: 100%;
+      opacity: 0.6;
+    }
+    .container {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      @include media-query("max-small-laptop") {
+        gap: 30px;
+      }
+      .main-heading {
+        @include media-query("max-small-laptop") {
+          width: 100%;
+        }
+        span,
+        h2 {
+          color: $light-color;
+        }
+        span {
+          letter-spacing: 2px;
+        }
+        h2 {
+          font-size: $font-size-30;
+          font-weight: $bolder-font-weight;
+        }
+      }
+      .buttons {
+        button.two {
+          padding: $padding-24 $padding-48;
+        }
+      }
+    }
+  }
+}
+
+/* Overlay Section End */

@@ -1,0 +1,85 @@
+@use "../abstracts/" as *;
+
+/*  Dental Clinic Welcome Section Start  */
+
+.dental-clinic {
+  background-color: $main-b-g;
+  .clinic-contnet {
+    display: flex;
+    flex-wrap: wrap;
+    & > div {
+      width: 50%;
+      @include media-query("max-small-laptop") {
+        width: 100%;
+      }
+    }
+    .left-box-image {
+      background-image: url(../images/3.webp);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      @include media-query("max-small-laptop") {
+        height: 700px;
+      }
+    }
+    .right-box-contnet {
+      padding: $padding-130 $padding-30;
+      @include media-query("max-small-laptop") {
+        padding: 80px 0;
+      }
+      .text-content {
+        p {
+          @include basic-properties(
+            $primary-tx-color,
+            $font-size-16,
+            $light-font-weight,
+            capitalize
+          );
+          line-height: 2;
+        }
+      }
+      .section-counter {
+        padding: $padding-30 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        .box {
+          padding: $padding-10;
+          border: 1px solid $main-color;
+          display: flex;
+          flex-grow: 1;
+          gap: 20px;
+          .icon {
+            span {
+              display: block;
+              i {
+                color: $main-color;
+                font-size: 40px;
+              }
+            }
+          }
+          .counter-contnet {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .number {
+              color: $main-color;
+              font-size: $font-size-30;
+              font-weight: $normal-font-weight;
+            }
+            .text {
+              @include basic-properties(
+                $primary-tx-color,
+                $font-size-16,
+                $light-font-weight,
+                capitalize
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*  Dental Clinic Welcome Section End  */

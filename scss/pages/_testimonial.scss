@@ -1,0 +1,108 @@
+@use "../abstracts/" as *;
+
+/* Testimonial Section Start */
+
+.testimonial {
+  padding-bottom: $padding-130;
+  background-color: $main-b-g;
+  .container {
+    .main-heading {
+      margin-bottom: 105px;
+    }
+    .testimonial-box {
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      column-gap: 25px;
+      row-gap: 50px;
+      @media (max-width: 575.98px) {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      }
+      .box-content {
+        .content-top {
+          background-color: $light-color;
+          position: relative;
+          padding: $padding-30;
+          .icon {
+            position: absolute;
+            top: -30px;
+            width: 50px;
+            height: 50px;
+            background-color: $main-b-g;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include prefixes(border-radius, 50%);
+            span {
+              @include prefixes(transform, rotate(180deg));
+              display: block;
+
+              i {
+                color: $main-color;
+                font-size: $font-size-30;
+              }
+            }
+          }
+          .text {
+            @include basic-properties(
+              $secondary-tx-color,
+              $font-size-16,
+              $light-font-weight,
+              capitalize
+            );
+            line-height: $main-line-height;
+          }
+        }
+        .customers {
+          margin-top: 30px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          .image {
+            width: 80px;
+            img {
+              @include prefixes(border-radius, 50%);
+            }
+          }
+          .info {
+            p {
+              @include basic-properties(
+                #111111,
+                $font-size-20,
+                $bold-font-weight,
+                uppercase
+              );
+              margin-bottom: 10px;
+            }
+            span {
+              display: block;
+              @include basic-properties(
+                $main-color,
+                $font-size-13,
+                $normal-font-weight,
+                uppercase
+              );
+            }
+          }
+        }
+      }
+    }
+    .bullet {
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      span {
+        height: 3px;
+        width: 30px;
+        background-color: $main-color;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* Testimonial Section End */

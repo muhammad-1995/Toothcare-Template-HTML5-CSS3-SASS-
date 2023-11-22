@@ -1,0 +1,75 @@
+@use "../abstracts/" as *;
+@use "../components/classes" as *;
+
+/* Services Section Start */
+
+.services {
+  h2,
+  p {
+    margin: 0;
+  }
+  padding: $padding-130 0;
+  background-color: $second-bg;
+  .services-contnet {
+    .main-heading {
+      margin-bottom: 80px;
+    }
+    .services-boxs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      .col-box {
+        text-align: center;
+        background-color: $light-color;
+        padding: $padding-50 $padding-30;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .icon {
+          span {
+            display: block;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background-color: $main-color-3;
+            color: $light-color;
+            @include prefixes(border-radius, 50%);
+            i {
+              font-size: $font-size-60;
+              line-height: 100px;
+            }
+          }
+        }
+        .title {
+          h2 {
+            @include basic-properties(
+              $main-heading,
+              $font-size-20,
+              $bold-font-weight,
+              capitalize
+            );
+          }
+        }
+        .text {
+          @include basic-properties(
+            $primary-tx-color,
+            $font-size-16,
+            $light-font-weight,
+            capitalize
+          );
+          line-height: 1.7;
+        }
+        &.hover {
+          @include hover-class;
+        }
+        &:hover {
+          h2 {
+            color: $light-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Services Section End */

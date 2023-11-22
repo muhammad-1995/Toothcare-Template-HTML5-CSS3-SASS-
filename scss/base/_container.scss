@@ -1,0 +1,45 @@
+@use "../abstracts/" as *;
+
+/* Container Style Start */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+// Breakpoint for small devices (phones)
+@include media-query("phone") {
+  .container {
+    max-width: 100%;
+  }
+}
+// Breakpoint for tablets
+@include media-query("tablet") {
+  .container {
+    max-width: 720px;
+  }
+}
+
+// Breakpoint for small laptops
+@include media-query("small-laptop") {
+  .container {
+    max-width: 960px;
+  }
+}
+
+// Breakpoint for laptops
+@include media-query("laptop") {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+// Breakpoint for large desktops
+@include media-query("desktop") {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Container Style End */

@@ -1,0 +1,211 @@
+@use "../abstracts/" as *;
+@use "../components/classes" as *;
+
+/* Reservation-section Start */
+
+%flex-same {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reservation-section {
+  h2,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  position: relative;
+  background-color: $main-b-g;
+  .over-lay {
+    background-color: $main-color;
+  }
+  .container {
+    position: relative;
+    @include media-query("max-small-laptop") {
+      padding: 0;
+    }
+    .section-content {
+      @extend %flex-same;
+      & > div {
+        width: 50%;
+        @include media-query("max-small-laptop") {
+          width: 100%;
+        }
+      }
+      .box-left {
+        background-color: $main-color;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: calc(-100% + 15px);
+          background-color: $main-color;
+          width: 100%;
+          height: 100%;
+          @include media-query("max-small-laptop") {
+            display: none;
+          }
+        }
+        padding: $padding-60 $padding-50 $padding-60 0;
+        @include media-query("max-small-laptop") {
+          padding: $padding-50 $padding-15;
+        }
+        .box-title {
+          @extend %flex-same;
+          gap: 15px;
+          flex-direction: column;
+          span {
+            @include basic-properties(
+              $light-color,
+              $font-size-13,
+              $normal-font-weight,
+              uppercase
+            );
+          }
+          h2 {
+            @include basic-properties(
+              $light-color,
+              $font-size-30,
+              $normal-font-weight,
+              capitalize
+            );
+          }
+        }
+        .box-form {
+          padding-top: $padding-60;
+          form {
+            @extend %flex-same;
+            column-gap: 30px;
+            row-gap: 40px;
+            .box-info {
+              @extend %flex-same;
+              flex-direction: column;
+              min-width: 250px;
+              flex-grow: 1;
+              grid-area: 10px;
+              gap: 11px;
+              label {
+                @include basic-properties(
+                  $light-color,
+                  $font-size-12,
+                  $bold-font-weight,
+                  uppercase
+                );
+                letter-spacing: 1px;
+              }
+              input {
+                height: 45px;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+                background-color: transparent;
+                @include basic-properties(
+                  $light-main-color,
+                  $font-size-14,
+                  $normal-font-weight,
+                  normal
+                );
+                &::placeholder {
+                  @include basic-properties(
+                    $light-main-color,
+                    $font-size-14,
+                    $normal-font-weight,
+                    capitalize
+                  );
+                }
+              }
+              &.textarea {
+                textarea {
+                  outline: none;
+                  border: 1px solid $light-color;
+                  background-color: transparent;
+                  padding: calc($padding-20 - 10px);
+                  color: $light-main-color;
+                  &::placeholder {
+                    color: $light-main-color;
+                    text-transform: capitalize;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .box-button {
+          margin-top: 30px;
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .box-right {
+      padding: $padding-60 0 $padding-60 $padding-50;
+      @include media-query("max-small-laptop") {
+        padding: $padding-50 $padding-15;
+      }
+      .offer-box {
+        padding-top: $padding-50;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .offer {
+          padding: $padding-25;
+          background-color: $light-color;
+          display: flex;
+          gap: 20px;
+          // @include prefixes(transition, background-color 0.4s);
+          // &:hover {
+          //   @include prefixes(
+          //     box-shadow,
+          //     0px 5px 25px -2px rgba(0, 0, 0, 0.18)
+          //   );
+          // }
+          .icon {
+            i {
+              @include prefixes(transition, color 0.4s);
+              font-size: 60px;
+              color: $main-color;
+            }
+          }
+          .content {
+            h2 {
+              margin-bottom: 20px;
+              @include prefixes(transition, color 0.4s);
+              @include basic-properties(
+                $main-heading,
+                $font-size-20,
+                $normal-font-weight,
+                capitalize
+              );
+            }
+            p {
+              @include prefixes(transition, color 0.4s);
+              @include basic-properties(
+                $primary-tx-color,
+                $font-size-16,
+                $light-font-weight,
+                capitalize
+              );
+              line-height: 28px;
+            }
+          }
+
+          &.hover {
+            @include hover-class;
+          }
+          // &:hover {
+          //   background-color: $main-color;
+          //   .icon i,
+          //   .content h2 {
+          //     color: $light-color;
+          //   }
+          //   p {
+          //     color: $light-main-color;
+          //   }
+          // }
+        }
+      }
+    }
+  }
+}

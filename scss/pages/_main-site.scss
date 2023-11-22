@@ -1,0 +1,83 @@
+@use "../abstracts/" as *;
+
+/* Main Section start */
+
+%flex-style {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main {
+  padding: $padding-20 0;
+  background-color: $main-b-g;
+  .contact-details {
+    @extend %flex-style;
+    @include media-query("max-tablet") {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    > div {
+      flex-grow: 1;
+    }
+    .brand {
+      a {
+        display: flex;
+        flex-direction: column;
+        .title {
+          @include basic-properties(
+            $main-color,
+            $font-size-24,
+            $boldest-font-weight,
+            uppercase
+          );
+        }
+        .text {
+          @include basic-properties(
+            $accent-tx-color,
+            $font-size-12,
+            $normal-font-weight,
+            uppercase
+          );
+        }
+      }
+    }
+    .data-column {
+      @extend %flex-style;
+      justify-content: flex-end;
+      gap: 15px;
+      .icon {
+        i {
+          font-size: 36px;
+          color: $main-color;
+        }
+      }
+      .data {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        span {
+          &:first-of-type {
+            @include basic-properties(
+              $main-color,
+              $font-size-14,
+              $light-font-weight,
+              capitalize
+            );
+          }
+          &:last-of-type {
+            @include basic-properties(
+              $accent-tx-color,
+              $font-size-14,
+              $bolder-font-weight,
+              capitalize
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Main Section End */

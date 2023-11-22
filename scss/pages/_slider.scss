@@ -1,0 +1,65 @@
+@use "../abstracts/" as *;
+
+/* Hero Slider Section Start*/
+
+.slider {
+  height: 100vh;
+  background-image: url("../images/bg_.jpg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  .over-lay {
+    background-color: #3232323f;
+  }
+  .container {
+    height: 100%;
+    position: relative;
+    .slider-content {
+      h1,
+      p {
+        margin: 0;
+      }
+      position: relative;
+      top: 50%;
+      @include prefixes(transform, translateY(-50%));
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      .title {
+        h1 {
+          @include basic-properties(
+            $light-color,
+            3.75rem,
+            $light-font-weight,
+            capitalize
+          );
+          @include media-query("max-tablet") {
+            // font-size: 2.5rem;
+          }
+        }
+      }
+      .text {
+        @include basic-properties(
+          $light-color,
+          $font-size-16,
+          $light-font-weight,
+          capitalize
+        );
+        line-height: 1.7;
+      }
+      .buttons {
+        @include media-query("max-tablet") {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* Hero Slider Section End*/
